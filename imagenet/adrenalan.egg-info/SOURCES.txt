@@ -1,0 +1,5 @@
+adrenalan.egg-info/PKG-INFO
+adrenalan.egg-info/SOURCES.txt
+adrenalan.egg-info/dependency_links.txt
+adrenalan.egg-info/requires.txt
+adrenalan.egg-info/top_level.txt
