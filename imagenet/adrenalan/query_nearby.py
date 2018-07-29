@@ -137,7 +137,7 @@ def process_custom_1(coords1, coords2, toclassify='5.jpg', tempdir='tmp'):
     location_data = search(results, location)
     print(location_data)
     cleanup(tempdir)
-    return location_data
+    return location
     
 ANDROID_PATH = NotImplementedError
     
