@@ -152,10 +152,8 @@ def process_custom_2(coords1, coords2, toclassify='6.jpg', tempdir='tmp'):
     get_photos(results, tempdir)
     classify_dict = classify_inference(tempdir, graph)
     location = compute_kls_with_labels(logits[0][0], classify_dict)
-    location_data = search(results, location)
     cleanup(tempdir)
-    print(location)
-    return location_data
+    return location
 
 def process_wrapper(latitude, longitude, img_input, process = '2'):
     assert isinstance(latitude, float)
