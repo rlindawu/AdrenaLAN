@@ -31,7 +31,7 @@ import java.util.UUID;
 public class myJavaClass {
 
 
-  public void myMethod(double lat, double lon) {
+  public String myMethod(double lat, double lon) {
 //        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 //        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 //        double longitude = location.getLongitude();
@@ -47,7 +47,9 @@ public class myJavaClass {
       interpreter.set("longitude", lon);
     interpreter.set("img_input", Environment.getExternalStorageDirectory()+"/"+ UUID.randomUUID().toString()+".jpg");
     PyObject result = interpreter.eval("process_wrapper(latitude, longitude, img_input)");
-    System.out.println(result.toString());
+    String javaResult = result.toString();
+    return javaResult;
+    //System.out.println(result.toString());
 
   }
 }

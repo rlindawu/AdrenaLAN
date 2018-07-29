@@ -9,7 +9,7 @@
     <TextureView
         android:id="@+id/textureView"
         android:layout_width="match_parent"
-        android:layout_height="479dp"
+        android:layout_height="429dp"
         android:layout_above="@+id/btnCapture"
 
         android:layout_marginBottom="-1dp" />
@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/textLabels"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="86dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="0dp"

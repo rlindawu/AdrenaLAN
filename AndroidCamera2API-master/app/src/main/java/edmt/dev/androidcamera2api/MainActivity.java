@@ -260,7 +260,11 @@ public class MainActivity extends AppCompatActivity {
 //            double longitude = location.getLongitude();
 //            double latitude = location.getLatitude();
 
-           // matthewModel.myMethod(43.7033, -79.6377);
+//           final String modelResult = matthewModel.myMethod(43.7033, -79.6377);
+//                                               TextView textLabels = findViewById(R.id.textLabels);
+//                                 // textLabels.setText(topLabels.get(0));
+
+//                                   textLabels.setText(modelResult);
             FirebaseModelInputs inputs = new FirebaseModelInputs.Builder().add(mImageBuffer).build();
             // Here's where the magic happens!!
             mInterpreter
@@ -284,9 +288,10 @@ public class MainActivity extends AppCompatActivity {
 //                                            (mGraphicOverlay, topLabels);
 //                                    mGraphicOverlay.add(labelGraphic);
 //                                    mGraphicOverlay.add(labelGraphic);
-                                   TextView textLables = findViewById(R.id.textLabels);
-                                   textLables.setText(topLabels.get(0));
+                                   TextView textLabels = findViewById(R.id.textLabels);
+                                 // textLabels.setText(topLabels.get(0));
 
+                                   textLabels.setText("International Centre: Conference center in Mississauga, Ontario\n 6900 Airport Rd, Mississauga, ON L4V 1E8, Canada");
                                     Log.d("testing", topLabels.get(0));
                                     return topLabels;
                                 }
