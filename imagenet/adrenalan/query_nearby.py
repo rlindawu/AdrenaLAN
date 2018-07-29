@@ -153,7 +153,7 @@ def process_custom_2(coords1, coords2, toclassify='6.jpg', tempdir='tmp'):
     classify_dict = classify_inference(tempdir, graph)
     location = compute_kls_with_labels(logits[0][0], classify_dict)
     location_data = search(results, location)
-    #cleanup(tempdir)
+    cleanup(tempdir)
     print(location)
     return location_data
 
