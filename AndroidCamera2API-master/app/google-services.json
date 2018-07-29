@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "554747285925",
+    "firebase_url": "https://myai-90a63.firebaseio.com",
+    "project_id": "myai-90a63",
+    "storage_bucket": "myai-90a63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554747285925:android:1745af4c9c380512",
+        "android_client_info": {
+          "package_name": "edmt.dev.androidcamera2api"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554747285925-ib96it2hk1f24q82ojsjcor67sbgt1n3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.codelab.mlkit_custommodel",
+            "certificate_hash": "186083ea726233741efa889ded01266ce4097dc0"
+          }
+        },
+        {
+          "client_id": "554747285925-pvcasr2i5rn4kvdk83gjv541hul292ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzLW7i6t6OJhnFDUNPQtvWtXNkhsei8e0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554747285925-pvcasr2i5rn4kvdk83gjv541hul292ha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
