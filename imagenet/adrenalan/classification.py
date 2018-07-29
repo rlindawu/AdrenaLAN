@@ -199,6 +199,15 @@ def setup():
     maybe_download_and_extract()
     # Creates graph from saved GraphDef.
     create_graph()
+    
+def human_output_prediction(predictions):
+    node_lookup = NodeLookup()
+
+    top_k = predictions.argsort()[:][::-1]
+    for node_id in top_k:
+      human_string = node_lookup.id_to_string(node_id)
+      score = predictions[node_id]
+    return (human_string, score)
 
 def main(*args, **kwargs):
     maybe_download_and_extract()
