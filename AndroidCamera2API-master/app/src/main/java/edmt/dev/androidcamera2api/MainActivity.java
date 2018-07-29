@@ -18,6 +18,8 @@ import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.location.Location;
+import android.location.LocationManager;
 import android.media.Image;
 import android.media.ImageReader;
 import android.net.Uri;
@@ -38,6 +40,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -75,6 +78,14 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.UUID;
 
+import org.python.core.PyDictionary;
+import org.python.core.PyInstance;
+import org.python.core.PyObject;
+import org.python.util.PythonInterpreter;
+
+
+
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private Button btnCapture;
@@ -83,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private Integer mImageMaxWidth;
     private List<String> mLabelList;
     private ByteBuffer mImageBuffer;
+    private myJavaClass matthewModel;
     private GraphicOverlay mGraphicOverlay;
     byte[] thumb_byte_data;
     Uri resultUri;
@@ -233,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    private void runModelInference(File myImage) {
+    private void runModelInference() {
         if (mInterpreter == null) {
             Log.e(TAG, "Image classifier has not been initialized; Skipped.");
             return;
@@ -243,6 +255,12 @@ public class MainActivity extends AppCompatActivity {
 //                mSelectedImage.getHeight());
 
         try {
+//            LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+//            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//            double longitude = location.getLongitude();
+//            double latitude = location.getLatitude();
+
+           // matthewModel.myMethod(43.7033, -79.6377);
             FirebaseModelInputs inputs = new FirebaseModelInputs.Builder().add(mImageBuffer).build();
             // Here's where the magic happens!!
             mInterpreter
@@ -261,10 +279,14 @@ public class MainActivity extends AppCompatActivity {
                                     byte[][] labelProbArray = task.getResult()
                                             .<byte[][]>getOutput(0);
                                     List<String> topLabels = getTopLabels(labelProbArray);
-                                    mGraphicOverlay.clear();
-                                    GraphicOverlay.Graphic labelGraphic = new LabelGraphic
-                                            (mGraphicOverlay, topLabels);
-                                    mGraphicOverlay.add(labelGraphic);
+//                                    mGraphicOverlay.clear();
+//                                    GraphicOverlay.Graphic labelGraphic = new LabelGraphic
+//                                            (mGraphicOverlay, topLabels);
+//                                    mGraphicOverlay.add(labelGraphic);
+//                                    mGraphicOverlay.add(labelGraphic);
+                                   TextView textLables = findViewById(R.id.textLabels);
+                                   textLables.setText(topLabels.get(0));
+
                                     Log.d("testing", topLabels.get(0));
                                     return topLabels;
                                 }
@@ -441,6 +463,7 @@ public class MainActivity extends AppCompatActivity {
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
 
             file = new File(Environment.getExternalStorageDirectory()+"/"+UUID.randomUUID().toString()+".jpg");
+            //globalFile = file;
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader imageReader) {
@@ -470,7 +493,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
 
-                        runModelInference(file);
+                        runModelInference();
                         byte[] bytes = new byte[buffer.capacity()];
                         buffer.get(bytes);
                         save(bytes);
