@@ -14,7 +14,10 @@ import os
 import os.path as osp
 
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+
+tf = None
+
 
 def load_graph(model_file):
   graph = tf.Graph()

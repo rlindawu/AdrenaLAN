@@ -143,16 +143,17 @@ ANDROID_PATH = NotImplementedError
     
 def process_custom_2(coords1, coords2, toclassify='6.jpg', tempdir='tmp'):    
     coords = (coords1, coords2)
-    graph = load_graph_default(osp.join(os.getcwd(), 'model/output_graph.pb'))
-    logits = inference([osp.join(os.getcwd(), toclassify)], graph, LF)
-    query_term = logits[1][0]
-    print(query_term)
+    #graph = load_graph_default(osp.join(os.getcwd(), 'model/output_graph.pb'))
+    #logits = inference([osp.join(os.getcwd(), toclassify)], graph, LF)
+    #query_term = logits[1][0]
     #print(query_term)
-    results = get_nearby_locations(coords, type=query_term)
-    get_photos(results, tempdir)
-    classify_dict = classify_inference(tempdir, graph)
-    location = compute_kls_with_labels(logits[0][0], classify_dict)
-    cleanup(tempdir)
+    #print(query_term)
+    results = get_nearby_locations(coords)
+#    get_photos(results, tempdir)
+#    classify_dict = classify_inference(tempdir, graph)
+#    location = compute_kls_with_labels(logits[0][0], classify_dict)
+#    cleanup(tempdir)
+    location = results[0]['name']
     return location
 
 def process_wrapper(latitude, longitude, img_input, process = '2'):
