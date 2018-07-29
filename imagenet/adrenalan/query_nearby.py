@@ -148,12 +148,13 @@ def process_custom_2(coords1, coords2, toclassify='6.jpg', tempdir='tmp'):
     #query_term = logits[1][0]
     #print(query_term)
     #print(query_term)
-    results = get_nearby_locations(coords)
+    results = get_nearby_locations(coords, type='place')
 #    get_photos(results, tempdir)
 #    classify_dict = classify_inference(tempdir, graph)
 #    location = compute_kls_with_labels(logits[0][0], classify_dict)
 #    cleanup(tempdir)
     location = results[0]['name']
+    print(location)
     return location
 
 def process_wrapper(latitude, longitude, img_input, process = '2'):
