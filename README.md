@@ -1,3 +1,3 @@
 # AdrenaLAN 2018 AR Project
 
-Competing for best AR/VR category.
+Won Best Mobile App. 
